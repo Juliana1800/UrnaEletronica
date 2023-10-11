@@ -76,8 +76,12 @@ let
         }else if (candidato3 > candidato1 && candidato3> candidato2) {
         console.log ("Candidato 3 ganhador: " + nomeCandidato1);
 
-        }else if (candidato1==candidato2 || candidato2==candidato3 || candidato3==candidato1) {
-            console.log ("Empate");
+        }else if (candidato1==candidato2)  {
+            console.log ("Empate entre Maria e Jenovaldo");
+        }else if (candidato2==candidato3) {
+            console.log ("Empate entre Jenovaldo e Marionete");
+        }else if (candidato3==candidato1) {
+        console.log ("Empate entre Maria e Marionete")
         }
     
     porcentagem=contadorTotal/100;
