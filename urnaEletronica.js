@@ -24,7 +24,6 @@ let
                                "Digite a opção: "));
         contadorTotal++;
 
-     
         if (opcao==1) {
             console.log ("Você votou no candidato 1");
             // alert("O nome do candidato é: " + nomeCandidato1 );
@@ -52,16 +51,12 @@ let
             alert ("Votação encerrada");
             contadorTotal--;
 
-        }else if (opcao=6, opcao=7, opcao>8 ) {
+        }else{
             console.log ("Voto Inválido");
-            alert("Voto Inválido");
             contadorTotal--;
         }
 
     } while (opcao !==0);
-
-        
-    // contadorTotalDeVotos--;
     
     console.log ("Contagem total de votos: " + contadorTotal);
     console.log ("Candidato 1: " + candidato1/contadorTotal*100 + " % " );
@@ -69,21 +64,17 @@ let
     console.log ("Candidato 3: " + candidato3/contadorTotal*100 + " % ");
     console.log ("Votos em branco: " + branco/contadorTotal*100 + " % ");
     console.log ("Votos nulos: " + nulo/contadorTotal*100 + " % ");
-
-    
-
     if (candidato1 > candidato2 && candidato1> candidato3) {
-        console.log ("Candidato 1 ganhador: " + candidato1);
+        console.log ("Candidato 1 ganhador: " + nomeCandidato1);
 
         }else if (candidato2 > candidato1 && candidato2> candidato3) {
-            console.log ("Candidato 2 ganhador: " + candidato2);
+        console.log ("Candidato 2 ganhador: " + nomeCandidato2);
 
         }else if (candidato3 > candidato1 && candidato3> candidato2) {
-            console.log ("Candidato 3 ganhador: " + candidato1);
+        console.log ("Candidato 3 ganhador: " + nomeCandidato1);
 
         }else if (candidato1==candidato2)  {
             console.log ("Empate entre Maria e Jenovaldo");
-
         }else if (candidato2==candidato3) {
             console.log ("Empate entre Jenovaldo e Marionete");
 
@@ -93,5 +84,8 @@ let
         }else if (candidato1==candidato2==candidato3){
             console.log ("Empate entre todos os candidatos");
         }
+    
+    porcentagem=contadorTotal/100;
+    // console.log("Resultado Final: " + porcentagem);
 
 }
