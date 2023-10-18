@@ -10,14 +10,14 @@ function urnaEletronica() {
         nulo = 0;
         encerrar= "",
         pin=123456,
+        // let confC2 = nomeCandidato2;
+        
     
         nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
-        console.log (nomeCandidato1 );
-        nomeCandidato2 = prompt ("Digite o nome do candidato 2: ");
-        console.log (nomeCandidato2 );
-        nomeCandidato3 = prompt ("Digite o nome do candidato 3: ");
-        console.log (nomeCandidato3 );
-       
+        let confC1 = confirm (nomeCandidato1);
+        if (! confC1) {
+            nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
+        }
 
     do {
         opcao = parseInt(prompt("Inicio da votação" + '\n' +
@@ -49,9 +49,15 @@ function urnaEletronica() {
             encerrar = prompt("Deseja encerrar a votação: s/n?")
         
         }else {
-            confirm ("Voto será anulado"); 
-            nulo++; 
-            contadorTotal--;
+
+            let confirmacao = confirm ("Anular o voto?"); 
+
+            if(confirmacao){
+                console.log ("Voto anulado")
+                nulo++; 
+                contadorTotal--;
+            }
+
         }
         
 
