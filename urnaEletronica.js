@@ -12,12 +12,17 @@ function urnaEletronica() {
         pin=123456,
         // let confC2 = nomeCandidato2;
         
-    
-        nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
-        let confC1 = confirm (nomeCandidato1);
-        if (! confC1) {
-            nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
+        for (let i=false; i!=true;) {
+            nomeCandidato1
+            i=confirm("maria joao jose")
         }
+        nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
+        // let confC1 = confirm (nomeCandidato1);
+
+        // if (! confC1) {
+        //     nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
+        // }
+        
 
     do {
         opcao = parseInt(prompt("Inicio da votação" + '\n' +
