@@ -9,22 +9,25 @@ function urnaEletronica() {
         branco = 0,
         nulo = 0;
         encerrar= "",
-        pin=123456,
-        // let confC2 = nomeCandidato2;
+        pin=0;
+        nomeC="";
+    
         
-        for (let i=false; i!=true;) {
-            nomeCandidato1
-            i=confirm("maria joao jose")
-        }
-        nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
-        // let confC1 = confirm (nomeCandidato1);
+        do{
+            
+            pin=parseInt(prompt("Senha mesário: "));  
+            nomeCandidato1= prompt("Digite o nome do candidato 1: ");
+            nomeCandidato2= prompt("Digite o nome do candidato 2: ");
+            nomeCandidato3=prompt("Digite o nome do candidato 3: ");
+            console.log ("**NOMES DOS CANDIDATOS**");
+            console.log ('Candidato 1:  ' + nomeCandidato1);
+            console.log ('Candidato 2:  ' + nomeCandidato2);
+            console.log ('Candidato 3:  ' + nomeCandidato3);
 
-        // if (! confC1) {
-        //     nomeCandidato1 = prompt ("Digite o nome do candidato 1: ");
-        // }
-        
+        }while (!confirm("Se correto clicar  'OK' se incorreto 'Cancelar'"));
 
     do {
+        // console.clear ();
         opcao = parseInt(prompt("Inicio da votação" + '\n' +
             "| 1 | Candidato 1" + '\n' +
             "| 2 | Candidato 2" + '\n' +
@@ -50,27 +53,30 @@ function urnaEletronica() {
             console.log("Branco");
             branco++;
 
-        } else if (opcao == pin) {
-            encerrar = prompt("Deseja encerrar a votação: s/n?")
-        
+        } else if (opcao == 123456) {
+            encerrar = prompt("Deseja encerrar a votação? Digite [S] para sim e [N] para não").toUpperCase();
+                if (encerrar !== 'S' && encerrar !== 'N') {
+                    alert("Opção inválida");
+
+                }
+                contadorTotal--;
         }else {
 
-            let confirmacao = confirm ("Anular o voto?"); 
-
-            if(confirmacao){
+            if(confirm ("ATENÇÃO: o seu voto será ANULADO"));{
                 console.log ("Voto anulado")
                 nulo++; 
                 contadorTotal--;
             }
-
         }
         
+        
 
-    } while (encerrar != 's' && 'S')
+    } while (encerrar !== 'S')
 
-    console.log("Contagem total de votos: " + contadorTotal);
-
-    console.log("Candidato 1: " + (candidato1 / contadorTotal * 100).toFixed(2) + " % ");
+    console.clear();
+    console.log('** BOLETIM DE URNA **');
+    console.log ("Total de votos: " + contadorTotal);
+    console.log("Total de votos Candidato 1: " + candidato1 + " votos (" + (candidato1 / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Candidato 2: " + (candidato2 / contadorTotal * 100).toFixed(2) + " % ");
     console.log("Candidato 3: " + (candidato3 / contadorTotal * 100).toFixed(2) + " % ");
     console.log("Votos em branco: " + (branco / contadorTotal * 100).toFixed(2) + " % ");
