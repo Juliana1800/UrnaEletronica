@@ -1,4 +1,5 @@
-.button {
-    padding: 50rem;
-
+button {
+    margin: 50px;
+    padding: 50px;
+    font-size: 50pt;
 }

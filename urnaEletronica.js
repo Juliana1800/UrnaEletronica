@@ -10,9 +10,7 @@ function urnaEletronica() {
         nulo = 0;
         encerrar= "",
         pin=0;
-        nomeC="";
     
-        
         do{
             
             pin=parseInt(prompt("Senha mesário: "));  
@@ -29,9 +27,9 @@ function urnaEletronica() {
     do {
         // console.clear ();
         opcao = parseInt(prompt("Inicio da votação" + '\n' +
-            "| 1 | Candidato 1" + '\n' +
-            "| 2 | Candidato 2" + '\n' +
-            "| 3 | Candidato 3" + '\n' +
+            "| 1 | " + nomeCandidato1+'\n' +
+            "| 2 | " + nomeCandidato2 + '\n' +
+            "| 3 | " + nomeCandidato3 + '\n' +
             "| 5 | branco " + '\n' + '\n' +
             "Digite a opção: "));
         contadorTotal++;
@@ -39,15 +37,28 @@ function urnaEletronica() {
 
         if (opcao == 1) {
             console.log("Você votou na Maria");
-            candidato1++;
-
+            // #Desafio7
+            if (confirm("você votou no candidato 1, clique 'Ok' para confirmar ou 'cancel' para cancelar.")) {
+                candidato1++;
+            } else {
+                contadorTotal--;
+            }
+            
         } else if (opcao == 2) {
             console.log("Você votou no José");
-            candidato2++;
+            if (confirm("você votou no candidato 2, clique 'Ok' para confirmar ou 'cancel' para cancelar.")){
+                candidato2++;
+            }else {
+                contadorTotal--;
+            }
 
         } else if (opcao == 3) {
             console.log("Você votou no João");
-            candidato3++;
+            if (confirm("você votou no candidato 3, clique 'Ok' para confirmar ou 'cancel' para cancelar.")) {
+                candidato3++;
+            }else {
+                contadorTotal--;
+            }
 
         } else if (opcao == 5) {
             console.log("Branco");
