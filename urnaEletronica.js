@@ -12,7 +12,7 @@ function urnaEletronica() {
         pin=0;
     
         do{
-            
+            console.log ("**Inicío da votação**");
             pin=parseInt(prompt("Senha mesário: "));  
             nomeCandidato1= prompt("Digite o nome do candidato 1: ");
             nomeCandidato2= prompt("Digite o nome do candidato 2: ");
