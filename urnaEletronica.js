@@ -69,18 +69,17 @@ function urnaEletronica() {
             }
         }
         
-        
 
     } while (encerrar !== 'S')
 
     console.clear();
     console.log('** BOLETIM DE URNA **');
     console.log ("Total de votos: " + contadorTotal);
-    console.log("Total de votos Candidato 1: " + candidato1 + " votos (" + (candidato1 / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Candidato 2: " + (candidato2 / contadorTotal * 100).toFixed(2) + " % ");
-    console.log("Candidato 3: " + (candidato3 / contadorTotal * 100).toFixed(2) + " % ");
-    console.log("Votos em branco: " + (branco / contadorTotal * 100).toFixed(2) + " % ");
-    console.log("Votos nulos: " + (nulo / contadorTotal * 100).toFixed(2) + " % ");
+    console.log("Total de votos candidato 1: " + candidato1 + " votos (" + (candidato1 / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 2: " + candidato2 + " votos (" + (candidato2 / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 3: " + candidato3 + " votos (" + (candidato3 / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total votos em branco: " + branco + " votos (" + (branco / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total votos nulos: " + nulo + " votos (" + (nulo / contadorTotal * 100).toFixed(2) + " % )");
 
     if (candidato1 > candidato2 && candidato1 > candidato3) {
         candidato1=candidato1+branco;
@@ -91,7 +90,7 @@ function urnaEletronica() {
         console.log("Candidato 2 ganhador: " + candidato2 + " votos José");
 
     } else if (candidato3 > candidato1 && candidato3 > candidato2) {
-        candidato3=candidato+branco;
+        candidato3=candidato3+branco;
         console.log("Candidato 3 ganhador: " + candidato1 +  " votos João");
 
     } else if (candidato1 == candidato2) {
