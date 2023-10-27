@@ -11,12 +11,15 @@ function urnaEletronica() {
         encerrar= "",
         pin=0;
         dataAtual = new Date();
-        
+        nomesC = [[70,"Jasson",PJS], 
+                [60,"Thiago", PTS], 
+                [50,"Kaua",PKS]
+                [40,"Baárbara", PBS],
+                [30,"Hian", PHS]];
 
-    
+        for (nomeC=0;    
         do{
             // Desafio#8
-           
             pin=parseInt(prompt("Senha mesário: "));  
             nomeCandidato1= prompt("Digite o nome do candidato 1: ");
             nomeCandidato2= prompt("Digite o nome do candidato 2: ");
