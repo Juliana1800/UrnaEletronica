@@ -11,34 +11,41 @@ function urnaEletronica() {
         encerrar= "",
         pin=0;
         dataAtual = new Date();
-        nomesC = [[70,"Jasson",PJS], 
-                [60,"Thiago", PTS], 
-                [50,"Kaua",PKS]
-                [40,"Baárbara", PBS],
-                [30,"Hian", PHS]];
+        DadoC = [
+            [70,"Matilde"], 
+            [60,"Ester"], 
+            [50,"João"],
+            [40,"José"],
+            [30,"Maria"],
+            [10, "Branco"]
+        ];
+        
+        for (let i = 0; i < DadoC.length; i++) {
+            console.log('Candidato: ' + DadoC[i][0]);
+        }
+ 
+        // do{
+        //     // Desafio#8
+        //     pin=parseInt(prompt("Senha mesário: "));  
+        //     nomeCandidato1= prompt("Digite o nome do candidato 1: ");
+        //     nomeCandidato2= prompt("Digite o nome do candidato 2: ");
+        //     nomeCandidato3=prompt("Digite o nome do candidato 3: ");
+        //     console.log ("**NOMES DOS CANDIDATOS**");
+        //     console.log ('Candidato 1:  ' + nomeCandidato1);
+        //     console.log ('Candidato 2:  ' + nomeCandidato2);
+        //     console.log ('Candidato 3:  ' + nomeCandidato3);
 
-        for (nomeC=0;    
-        do{
-            // Desafio#8
-            pin=parseInt(prompt("Senha mesário: "));  
-            nomeCandidato1= prompt("Digite o nome do candidato 1: ");
-            nomeCandidato2= prompt("Digite o nome do candidato 2: ");
-            nomeCandidato3=prompt("Digite o nome do candidato 3: ");
-            console.log ("**NOMES DOS CANDIDATOS**");
-            console.log ('Candidato 1:  ' + nomeCandidato1);
-            console.log ('Candidato 2:  ' + nomeCandidato2);
-            console.log ('Candidato 3:  ' + nomeCandidato3);
-
-        }while (!confirm("Se correto clicar  'OK' se incorreto 'Cancelar'"));
+        // }while (!confirm("Se correto clicar  'OK' se incorreto 'Cancelar'"));
 
     do {
         // console.clear ();
-        opcao = parseInt(prompt("Inicio da votação" + '\n' +
-            "| 1 | " + nomeCandidato1+'\n' +
-            "| 2 | " + nomeCandidato2 + '\n' +
-            "| 3 | " + nomeCandidato3 + '\n' +
-            "| 5 | branco " + '\n' + '\n' +
-            "Digite a opção: "));
+        // opcao = parseInt(prompt("Inicio da votação" + '\n' +
+        //     "| 1 | " + nomeCandidato1+'\n' +
+        //     "| 2 | " + nomeCandidato2 + '\n' +
+        //     "| 3 | " + nomeCandidato3 + '\n' +
+        //     "| 5 | branco " + '\n' + '\n' +
+        //     "Digite a opção: "));
+    
         contadorTotal++;
     
 
@@ -126,5 +133,4 @@ function urnaEletronica() {
         console.log("Empate entre João e Maria:" +  candidato3 + " votos João " + candidato1 + " votos Maria");
 
     }
-
 }
