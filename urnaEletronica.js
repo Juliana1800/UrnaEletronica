@@ -1,3 +1,26 @@
+// function DataHora () {
+//     const dataHora = new Date ();
+//     console.log ("Data: "+ datahora.getdate() + (dataHora.getMonth +1) + dataHoraget. )
+// }
+
+function verificarIntegridadeUrna() {
+
+    fetch('./urnaEletronica.js')
+        .then (conteudo => conteudo.text())
+        .then (conteudo => CryptoJS.SHA256(conteudo).toString())
+        .then (hashUrnaAtual => {
+            fetch ('./hashVerificado')
+            .then(conteudo =>conteudo.text())
+                if (hashUrnaAtual === hashVerificado) {
+                    console.log ('Hash verificado, urna ÍNTEGRA')
+                } else 
+                    console.log ('hashes DIFERENTES urna Adulterada');
+                    console.log ('hash esperado: ' + hashverificado);
+                    console.log ('Hash da urna: ' + hashUrnaAtual);
+
+        });
+};
+
 function urnaEletronica() {
 
     let
@@ -11,40 +34,43 @@ function urnaEletronica() {
         encerrar= "",
         pin=0;
         dataAtual = new Date();
-        DadoC = [
-            [70,"Matilde"], 
-            [60,"Ester"], 
-            [50,"João"],
-            [40,"José"],
-            [30,"Maria"],
-            [10, "Branco"]
-        ];
+        // DadoC = [
+        //     [70,"Matilde"], 
+        //     [60,"Ester"], 
+        //     [50,"João"],
+        //     [40,"José"],
+        //     [30,"Maria"],
+        //     [10, "Branco"]
+        // ];
         
-        for (let i = 0; i < DadoC.length; i++) {
-            console.log('Candidato: ' + DadoC[i][0]);
-        }
- 
-        // do{
-        //     // Desafio#8
-        //     pin=parseInt(prompt("Senha mesário: "));  
-        //     nomeCandidato1= prompt("Digite o nome do candidato 1: ");
-        //     nomeCandidato2= prompt("Digite o nome do candidato 2: ");
-        //     nomeCandidato3=prompt("Digite o nome do candidato 3: ");
-        //     console.log ("**NOMES DOS CANDIDATOS**");
-        //     console.log ('Candidato 1:  ' + nomeCandidato1);
-        //     console.log ('Candidato 2:  ' + nomeCandidato2);
-        //     console.log ('Candidato 3:  ' + nomeCandidato3);
+        // for (let i = 0; i < DadoC.length; i++) {
+        //     for (let j =0; j<DadoC.length; j++) {
+        //         console.log('Candidato: ' + DadoC[i][j]);
 
-        // }while (!confirm("Se correto clicar  'OK' se incorreto 'Cancelar'"));
+        //     }
+        // }
+ 
+    do{
+            // Desafio#8
+            pin=parseInt(prompt("Senha mesário: "));  
+            nomeCandidato1= prompt("Digite o nome do candidato 1: ");
+            nomeCandidato2= prompt("Digite o nome do candidato 2: ");
+            nomeCandidato3=prompt("Digite o nome do candidato 3: ");
+            console.log ("**NOMES DOS CANDIDATOS**");
+            console.log ('Candidato 1:  ' + nomeCandidato1);
+            console.log ('Candidato 2:  ' + nomeCandidato2);
+            console.log ('Candidato 3:  ' + nomeCandidato3);
+
+        }while (!confirm("Se correto clicar  'OK' se incorreto 'Cancelar'"));
 
     do {
-        // console.clear ();
-        // opcao = parseInt(prompt("Inicio da votação" + '\n' +
-        //     "| 1 | " + nomeCandidato1+'\n' +
-        //     "| 2 | " + nomeCandidato2 + '\n' +
-        //     "| 3 | " + nomeCandidato3 + '\n' +
-        //     "| 5 | branco " + '\n' + '\n' +
-        //     "Digite a opção: "));
+        console.clear ();
+        opcao = parseInt(prompt("Inicio da votação" + '\n' +
+            "| 1 | " + nomeCandidato1+'\n' +
+            "| 2 | " + nomeCandidato2 + '\n' +
+            "| 3 | " + nomeCandidato3 + '\n' +
+            "| 5 | branco " + '\n' + '\n' +
+            "Digite a opção: "));
     
         contadorTotal++;
     
@@ -99,10 +125,11 @@ function urnaEletronica() {
 
     // console.clear();
     dataFinal = new Date();
+    verificarIntegridadeUrna();
     console.log ("**Boletim de votação**");
-    console.log ("**Inicío da votação**" + " " + dataAtual);;
+    console.log ("**Inicío da votação**" + " " + dataAtual);
     console.log ('**Fim da Votação**' + " " + dataFinal);
-    
+
     console.log ("Total de votos: " + contadorTotal);
     console.log("Total de votos candidato 1: " + nomeCandidato1 + " votos (" + (candidato1 / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total de votos candidato 2: " + nomeCandidato2 + " votos (" + (candidato2 / contadorTotal * 100).toFixed(2) + " % )");
