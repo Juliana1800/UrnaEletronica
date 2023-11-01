@@ -3,25 +3,28 @@ function DataHora () {
     return `Data: ${dataHora.getDate()}/${dataHora.getMonth() +1}/${dataHora.getFullYear()} ${dataHora.getHours()}:${dataHora.getMinutes()}:${dataHora.getSeconds()}`;
 }
 
- async function verificarIntegridadeUrna() {
+async function verificarIntegridadeUrna() {
 
-    fetch('./urnaEletronica.js')
-        .then (conteudo => conteudo.text())
-        .then (conteudo => CryptoJS.SHA256(conteudo).toString())
-        .then (hashUrnaAtual => {
-            fetch ('./hashVerificado')
-            .then(conteudo =>conteudo.text())
-                if (hashUrnaAtual === hashVerificado) {
-                    console.log ('Hash verificado, urna ÍNTEGRA')
-                } else 
-                    console.log ('hashes DIFERENTES urna Adulterada');
-                    console.log ('hash esperado: ' + hashverificado);
-                    console.log ('Hash da urna: ' + hashUrnaAtual);
+    let hashUrnaAtual,
+        hashVerificado;
 
-        });
-};
+        await fetch('./urnaEletronica.js')
+                .then (conteudo => conteudo.text()) // função anonima parametro de entrada na esquerda e o corpo a direita
+                .then (conteudo => CryptoJS.SHA256(conteudo).toString())
+                .then (conteudo => hashUrnaAtual = conteudo);
 
-function urnaEletronica() {
+        await fetch ('./hashVerificado')
+                .then(conteudo =>conteudo.text())
+                .then(conteudo =>hashVerificado = conteudo);
+
+            return {
+            status: hashUrnaAtual === hashVerificado,
+            hashUrnaAtual: hashUrnaAtual,
+            hashVerificado: hashVerificado,
+        };
+}
+
+async function urnaEletronica() {
 
     let
         voto;
@@ -126,15 +129,14 @@ function urnaEletronica() {
     } while (encerrar !== 'S')
 
     // console.clear();
-    
-    verificarIntegridadeUrna();
+
     dataFinal = DataHora();
     console.log ("**Boletim de votação**");
-    console.log ("**Inicío da votação**" + " " + dataInicial);
+    console.log (`**Inicío da votação** ${dataInicial}`);
     console.log (`**Fim da Votação** ${dataFinal}`);
 
     console.log (`Total de votos: ${contadorTotal}`);
-    console.log("Total de votos candidato 1: " + DadoC[0][1] + " votos (" + (DadoC[0][1] / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 1: " + DadoC[0][1] + " votos (" + (contador / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total de votos candidato 2: " + DadoC[1][1] + " votos (" + (DadoC[1][1] / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total de votos candidato 3: " + DadoC[2][1] + " votos (" + (DadoC[2][1]  / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total de votos candidato 3: " + DadoC[3][1] + " votos (" + (DadoC[3][1]  / contadorTotal * 100).toFixed(2) + " % )");
@@ -165,4 +167,17 @@ function urnaEletronica() {
         console.log("Empate entre João e Maria:" +  candidato3 + " votos João " + candidato1 + " votos Maria");
 
     }
+       
+    await verificarIntegridadeUrna()
+        .then (verificacao => {
+            if (verificacao.status) {
+                console.log (`Hashes verificado, urna íntegra`);
+            }else {
+                console.log (`URNA ADULTERADA!`)
+                console.log (`Hashes da urna: ${verificacao.hashUrnaAtual}`);
+                console.log (`Hash esperado: ${verificacao.hashVerificado}`);
+            }
+            console.log (`**Fim do programa**`)
+        });
+
 }
