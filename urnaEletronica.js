@@ -140,14 +140,14 @@ async function urnaEletronica() {
     console.log("Total de votos candidato 2: " + DadoC[1][1] + " votos (" + (candidato2 / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total de votos candidato 3: " + DadoC[2][1] + " votos (" + (candidato3  / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total de votos candidato 3: " + DadoC[3][1] + " votos (" + (candidato4  / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Total de votos candidato 3: " + DadoC[4][1] + " votos (" + (branco  / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Total votos em branco: " + DadoC[5][1] + " votos (" + (DadoC[5][1] / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 3: " + DadoC[4][1] + " votos (" + (candidato5 / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total votos em branco: " + DadoC[5][1] + " votos (" + (branco / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total votos nulos: " + nulo + " votos (" + (nulo / contadorTotal * 100).toFixed(2) + " % )");
 
     
     if (DadoC[0][1] > DadoC[1][1] && DadoC[0][1] > DadoC [2][1]) {
         DadoC[0][1]=DadoC[0][1]+[5][1];
-        console.log(`Candidato: &{DadoC[0][1]} ganhador`);
+        console.log("Candidato:  "+ DadoC[0][1] + "ganhador");
 
     } else if (candidato2 > candidato1 && candidato2 > candidato3) {
         candidato2=candidato2+branco;
