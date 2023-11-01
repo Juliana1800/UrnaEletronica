@@ -45,7 +45,7 @@ async function urnaEletronica() {
             [50,"João", "EF"],
             [40,"José", "GH"],
             [30,"Maria", "IJ"],
-            [10, "Branco", "LM"]
+            [10, "Branco"]
         ];
       
 
@@ -136,11 +136,11 @@ async function urnaEletronica() {
     console.log (`**Fim da Votação** ${dataFinal}`);
 
     console.log (`Total de votos: ${contadorTotal}`);
-    console.log("Total de votos candidato 1: " + DadoC[0][1] + " votos (" + (contador / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Total de votos candidato 2: " + DadoC[1][1] + " votos (" + (DadoC[1][1] / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Total de votos candidato 3: " + DadoC[2][1] + " votos (" + (DadoC[2][1]  / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Total de votos candidato 3: " + DadoC[3][1] + " votos (" + (DadoC[3][1]  / contadorTotal * 100).toFixed(2) + " % )");
-    console.log("Total de votos candidato 3: " + DadoC[4][1] + " votos (" + (DadoC[4][1]  / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 1: " + DadoC[0][1] + " votos (" + (candidato1 / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 2: " + DadoC[1][1] + " votos (" + (candidato2 / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 3: " + DadoC[2][1] + " votos (" + (candidato3  / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 3: " + DadoC[3][1] + " votos (" + (candidato4  / contadorTotal * 100).toFixed(2) + " % )");
+    console.log("Total de votos candidato 3: " + DadoC[4][1] + " votos (" + (branco  / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total votos em branco: " + DadoC[5][1] + " votos (" + (DadoC[5][1] / contadorTotal * 100).toFixed(2) + " % )");
     console.log("Total votos nulos: " + nulo + " votos (" + (nulo / contadorTotal * 100).toFixed(2) + " % )");
 
