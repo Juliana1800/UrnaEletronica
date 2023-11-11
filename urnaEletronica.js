@@ -47,6 +47,7 @@ async function urnaEletronica() {
             [30,"Maria", "IJ"],
             [10, "Branco"]
         ];
+        
       
 
         
@@ -69,6 +70,8 @@ async function urnaEletronica() {
         if (voto == DadoC[0][0]) {
             console.log(`Você votou:  ${DadoC[0][1]}`);
             if (confirm(`você votou no ${DadoC[0][1]}, clique 'Ok' para confirmar ou 'cancel' para cancelar.`)) {
+                let audio = new Audio('confirmacao.mp3');
+                    audio.play();
                 candidato1++;
             } else {
                 contadorTotal--;
@@ -145,27 +148,25 @@ async function urnaEletronica() {
     console.log("Total votos nulos: " + nulo + " votos (" + (nulo / contadorTotal * 100).toFixed(2) + " % )");
 
     
-    if (DadoC[0][1] > DadoC[1][1] && DadoC[0][1] > DadoC [2][1]) {
-        DadoC[0][1]=DadoC[0][1]+[5][1];
-        console.log("Candidato:  "+ DadoC[0][1] + "ganhador");
+    if (DadoC[0][1] > DadoC[1][1] && DadoC[0][1] > DadoC[2][1] && DadoC[0][1] > DadoC[3][1] && DadoC[0][1] > DadoC[4][1]) {
+        candidato1=candidato1+branco
+        console.log(`Candidato: ${DadoC[0][1]} ganhador`);
 
-    } else if (candidato2 > candidato1 && candidato2 > candidato3) {
-        candidato2=candidato2+branco;
-        console.log("Candidato 2 ganhador: " + candidato2 + " votos José");
+    } else if (DadoC[1][1] > DadoC[0][1] && DadoC[1][1] > DadoC[2][1] && DadoC[1][1] > DadoC[3][1] && DadoC[1][1] > DadoC[4][1]) {
+            candidato2=candidato2 + branco;
+            console.log(`Candidato: ${DadoC[1][1]} ganhador candidato2`); 
 
-    } else if (candidato3 > candidato1 && candidato3 > candidato2) {
+    }else if (DadoC[2][1] > DadoC[0][1] && DadoC[2][1] > DadoC[1][1] && DadoC[2][1] > DadoC[3][1] && DadoC[2][1] > DadoC[4][1]) {
         candidato3=candidato3+branco;
-        console.log("Candidato 3 ganhador: " + candidato1 +  " votos João");
+        console.log(`Candidato: ${DadoC[2][1]} ganhador`);
 
-    } else if (candidato1 == candidato2) {
-        console.log("Empate Maria e José: " + candidato1 + " votos  Maria " + candidato2 + " votos José");
+    } else if (DadoC[3][1] > DadoC[0][1] && DadoC[3][1] > DadoC[1][1] && DadoC[3][1] > DadoC[2][1] && DadoC[3][1] > DadoC[4][1]) { 
+        candidato4=candidato4+branco;
+        console.log(`Candidato: ${DadoC[3][1]} ganhador`);
 
-    } else if (candidato2 == candidato3) {
-        console.log("Empate entre José e João:" + candidato2 + " votos José " + candidato3 + " votos João");
-
-    } else if (candidato3 == candidato1) {
-        console.log("Empate entre João e Maria:" +  candidato3 + " votos João " + candidato1 + " votos Maria");
-
+    } else if (DadoC[4][1] > DadoC[0][1] && DadoC[4][1] > DadoC[1][1] && DadoC[4][1] > DadoC[2][1] && DadoC[4][1] > DadoC[3][1]) { 
+        candidato5=candidato5+branco;
+        console.log(`Candidato: ${DadoC[4][1]} ganhador`);
     }
        
     await verificarIntegridadeUrna()
