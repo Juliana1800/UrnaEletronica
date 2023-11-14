@@ -23,6 +23,11 @@ async function verificarIntegridadeUrna() {
             hashVerificado: hashVerificado,
         };
 }
+async function confiracao() {
+    let audio = new Audio ('./audio/confiracao.mp3');
+    await audio.play();
+
+}
 
 async function urnaEletronica() {
 
@@ -47,8 +52,6 @@ async function urnaEletronica() {
             [30,"Maria", "IJ"],
             [10, "Branco"]
         ];
-        
-      
 
         
         for (let i = 0; i < DadoC.length; i++) {
@@ -70,8 +73,7 @@ async function urnaEletronica() {
         if (voto == DadoC[0][0]) {
             console.log(`Você votou:  ${DadoC[0][1]}`);
             if (confirm(`você votou no ${DadoC[0][1]}, clique 'Ok' para confirmar ou 'cancel' para cancelar.`)) {
-                let audio = new Audio('confirmacao.mp3');
-                    audio.play();
+                await audio.play();
                 candidato1++;
             } else {
                 contadorTotal--;
@@ -80,6 +82,7 @@ async function urnaEletronica() {
         } else if (voto == DadoC[1][0]) {
             console.log(`Você votou:  ${DadoC[1][1]}`);
             if (confirm("você votou no Ester, clique 'Ok' para confirmar ou 'cancel' para cancelar.")){
+                await audio.play();
                 candidato2++;
             }else {
                 contadorTotal--;
@@ -88,6 +91,7 @@ async function urnaEletronica() {
         } else if (voto == DadoC[2][0]) {
             console.log(`Você votou:  ${DadoC[2][1]}`);
             if (confirm("você votou no João, clique 'Ok' para confirmar ou 'cancel' para cancelar.")) {
+                await audio.play();
                 candidato3++;
             }else {
                 contadorTotal--;
@@ -95,6 +99,7 @@ async function urnaEletronica() {
         } else if (voto == DadoC[3][0]) {
             console.log(`Você votou:  ${DadoC[3][1]}`);
             if (confirm("você votou no José, clique 'Ok' para confirmar ou 'cancel' para cancelar.")) {
+                await audio.play();
                 candidato4++;
             }else {
                 contadorTotal--;
@@ -102,6 +107,7 @@ async function urnaEletronica() {
         } else if (voto == DadoC[4][0]) {
             console.log(`Você votou:  ${DadoC[4][1]}`);
             if (confirm("você votou no Maria, clique 'Ok' para confirmar ou 'cancel' para cancelar.")) {
+                await audio.play();
                 candidato5++;
             }else {
                 contadorTotal--;
@@ -109,7 +115,7 @@ async function urnaEletronica() {
 
         } else if (voto == DadoC[5][0]) {
             console.log(`Você votou:  ${DadoC[5][1]}`);
-            
+            await audio.play();
             branco++;
 
         } else if (voto == 123456) {
